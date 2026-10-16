@@ -1,8 +1,8 @@
 # AuNote Beta (GitHub Pages)
 
-This directory is the static deployment copy of AuNote V1.4.2-beta.4 from
-`HarryAuu999/field-research-data-tool`, branch `codex/aunote-beta-1.4.2`,
-commit `14b60c3`. It contains only files needed by the PWA. No build step is
+This directory is the static deployment copy of AuNote V1.4.7-beta.1 from
+`HarryAuu999/field-research-data-tool`, branch `codex/aunote-beta-ui-147`,
+commit `3950811`. It contains only files needed by the PWA. No build step is
 required; publish the repository's `main` branch from `/` with GitHub Pages.
 
 The GitHub Pages copy uses IndexedDB `research-notebook-beta-github`. This is
@@ -13,13 +13,12 @@ already scoped to this repository's path, and its icons and title are yellow
 and labeled “AuNote Beta”.
 
 Test records stay in the browser or installed PWA. This repository contains
-no research records or backups. Installing from the new GitHub Pages address
-starts with a separate local dataset. Use the app's full JSON backup and
+no research records or backups. Installing from this GitHub Pages address
+uses a separate local dataset from the formal site. Use the app's full JSON backup and
 restore only when a deliberate transfer is needed.
 
-Beta.4 halves stroke simplification tolerance to 0.15% and enlarges the
-bundled side and section ear views while keeping the full ear in the canvas.
-Production V1.4.0 remains on the separate formal site.
+Beta.1 of the 1.4.7 series tests the all-page UI redesign with the existing
+mixed-analysis functionality. Production V1.4.7 remains on the separate formal site.
 
 For future updates, copy the runtime files from the Beta source branch,
 preserve this deployment's `DB_NAME` in `js/db.js`, increment the version in
