@@ -97,13 +97,12 @@ export function countImageRangeParticipants(field, records, levelId, maxWidth = 
   return { width, height, counts, participantCount, levelCount, maxCount };
 }
 
-export function heatColor(value) {
+function heatColor(value) {
   const stops = [
-    [0, 172, 208, 241],
-    [0.25, 84, 145, 201],
-    [0.5, 37, 203, 117],
-    [0.75, 216, 211, 44],
-    [1, 225, 55, 55]
+    [0, 42, 161, 215],
+    [0.35, 35, 111, 211],
+    [0.7, 91, 65, 191],
+    [1, 174, 45, 144]
   ];
   for (let i = 1; i < stops.length; i += 1) {
     if (value <= stops[i][0]) {
@@ -116,33 +115,12 @@ export function heatColor(value) {
   return stops.at(-1).slice(1);
 }
 
-export function heatmapBlurRadius(width) {
-  return Math.max(1, Math.round(width * 0.007));
-}
-
-export function heatAlpha(count) {
-  return count < 0.05 ? 0 : Math.round(205 * Math.min(1, count / 1.2) ** 1.35);
-}
-
-export function heatmapScaleGradient(scaleMaximum, steps = 20) {
-  const scale = Math.max(1, scaleMaximum);
-  const stops = [];
-  for (let index = 0; index <= steps; index += 1) {
-    const ratio = index / steps;
-    const color = heatColor(ratio);
-    const alpha = heatAlpha(ratio * scale) / 255;
-    const displayed = color.map((channel) => Math.round(255 + (channel - 255) * alpha));
-    stops.push(`rgb(${displayed.join(", ")}) ${ratio * 100}%`);
-  }
-  return `linear-gradient(90deg, ${stops.join(", ")})`;
-}
-
 export function paintHeatmap(canvas, result, scaleMaximum) {
   canvas.width = result.width;
   canvas.height = result.height;
   const ctx = canvas.getContext("2d");
   const image = ctx.createImageData(result.width, result.height);
-  const blurRadius = heatmapBlurRadius(result.width);
+  const blurRadius = Math.max(2, Math.round(result.width * 0.012));
   const softened = boxBlur(boxBlur(result.counts, result.width, result.height, blurRadius), result.width, result.height, blurRadius);
   const scale = Math.max(1, scaleMaximum);
   for (let i = 0; i < softened.length; i += 1) {
@@ -154,7 +132,7 @@ export function paintHeatmap(canvas, result, scaleMaximum) {
     image.data[offset] = color[0];
     image.data[offset + 1] = color[1];
     image.data[offset + 2] = color[2];
-    image.data[offset + 3] = heatAlpha(count);
+    image.data[offset + 3] = Math.round(225 * Math.min(1, count / 0.65));
   }
   ctx.putImageData(image, 0, 0);
 }

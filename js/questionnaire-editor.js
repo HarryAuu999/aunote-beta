@@ -115,6 +115,5 @@ export function reorderFields(fields, orderedIds) {
 }
 
 export function questionUsesAnalysis(template, fieldId) {
-  const configs = Array.isArray(template.analyses) ? template.analyses : (template.analysis ? [template.analysis] : []);
-  return configs.some((config) => config.fields?.some((item) => item.id === fieldId));
+  return Boolean(template.analysis?.fields?.some((item) => item.id === fieldId));
 }
