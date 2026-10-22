@@ -363,7 +363,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 
 .app-header {
   min-height: calc(64px + env(safe-area-inset-top));
-  padding: env(safe-area-inset-top) var(--page-gutter) 0;
+  padding: calc(env(safe-area-inset-top) + 12px) var(--page-gutter) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -487,7 +487,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   font-size: 16px;
   text-align: left;
 }
-.count-link > span:first-child { flex: 1; }
+.count-link > span:first-child { flex: 1; color: var(--ink); font-weight: 400; }
 .count-link .count-value { color: var(--muted); font-size: 15px; }
 
 .home-actions, .draft-actions { display: grid; gap: 12px; margin: 0; }
@@ -499,7 +499,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 }
 .home-utility-actions { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
 .home-utility-actions > .secondary-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
   min-height: 58px;
   border: 0;
@@ -510,6 +512,17 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   font-weight: 590;
   text-align: left;
 }
+.home-utility-actions > .secondary-button > span { flex: 1; }
+.home-action-icon {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #61798c;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .home-utility-actions > .secondary-button + .secondary-button { border-top: 1px solid var(--line); }
 .home-footer {
   margin-top: auto;
@@ -519,7 +532,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 12px;
 }
-.home-footer .text-button { min-width: 0; padding-inline: 0; text-align: left; font-size: 13px; }
+.home-footer .text-button { min-width: 0; padding-inline: 0; text-align: left; font-size: 12px; font-weight: 400; }
 .home-footer .text-button:last-child { text-align: right; }
 
 .primary-button, .secondary-button, .danger-button, .text-button {
@@ -535,6 +548,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 .primary-button.accent { background: var(--forest); color: #fff; }
 .secondary-button { border: 1px solid #a9c1d2; background: #fff; color: var(--forest); }
 .danger-button { border: 1px solid var(--danger); background: transparent; color: var(--danger); }
+.draft-actions .danger-button { background: #fff; }
 .text-button { min-height: 44px; border: 0; background: transparent; color: var(--forest); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 button:disabled { opacity: 0.38; }
 
@@ -564,6 +578,7 @@ button:disabled { opacity: 0.38; }
   will-change: transform;
 }
 .swipe-row.dragging .swipe-content { transition: none; }
+.template-screen .swipe-row.is-current .swipe-content { border-color: var(--accent); }
 .swipe-row.revealed .swipe-content { transform: translateX(-116px); }
 .swipe-actions {
   position: absolute;
@@ -646,11 +661,11 @@ button:disabled { opacity: 0.38; }
 .overview-question-row .swipe-content { min-height: 0; display: block; border-radius: 0; }
 .overview-question-row.revealed .swipe-content { transform: translateX(-64px); }
 .overview-question-row:last-child .overview-question, .overview-question-row:last-child .overview-section { border-bottom: 0; }
-.overview-question-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; color: var(--ink); font-size: 15px; font-weight: 650; line-height: 1.4; }
-.overview-question-heading small { flex: 0 0 auto; color: var(--forest); font-size: 12px; font-weight: 650; }
-.overview-question-type { color: var(--forest) !important; font-size: 13px !important; font-weight: 600; }
+.overview-question-heading { color: var(--ink); font-size: 15px; font-weight: 400; line-height: 1.4; }
+.overview-required { color: var(--danger); font-size: 18px; line-height: 0; }
+.overview-question-type { color: var(--accent) !important; font-size: 13px !important; font-weight: 400; }
 .overview-question p, .overview-section p { margin: 7px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
-.overview-section h3 { margin: 0; font-size: 16px; }
+.overview-section h3 { margin: 0; font-size: 16px; font-weight: 400; }
 .overview-options { color: var(--quiet) !important; }
 .overview-edit-target { position: relative; }
 .overview-summary-edit { position: relative; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; }
@@ -830,7 +845,7 @@ button:disabled { opacity: 0.38; }
 .heatmap-image-wrap img { display: block; width: 100%; height: auto; border-radius: 10px; }
 .heatmap-image-wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .heatmap-scale { display: grid; gap: 5px; }
-.heatmap-scale-bar { height: 13px; border-radius: 999px; background: linear-gradient(90deg, #fff 0%, #2aa1d7 12%, #236fd3 40%, #5b41bf 70%, #ae2d90 100%); border: 1px solid var(--line); }
+.heatmap-scale-bar { height: 13px; border-radius: 999px; border: 1px solid var(--line); }
 .heatmap-scale-ticks { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 380px) {
@@ -839,13 +854,12 @@ button:disabled { opacity: 0.38; }
 
 .records-content { padding-top: 16px; }
 .section-title { margin: 0 0 16px; color: var(--muted); font-size: 13px; font-weight: 600; }
+.records-heading { margin-bottom: 15px; }
 .record-list {
   display: block;
-  overflow: visible;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
 }
+.record-list.has-records { overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+.records-content .swipe-hint { margin-top: 18px; }
 .record-swipe-row { border-radius: 0; }
 .record-swipe-row.revealed .swipe-content { transform: translateX(-64px); }
 .record-card {
@@ -950,7 +964,7 @@ button:disabled { opacity: 0.38; }
   outline: none;
 }
 .textarea-input { min-height: 132px; line-height: 1.5; resize: vertical; }
-.text-input:focus, .number-input:focus, .textarea-input:focus, .other-input:focus { border: 1.5px solid var(--forest); box-shadow: 0 0 0 3px var(--forest-soft); }
+.text-input:focus, .number-input:focus, .textarea-input:focus, .other-input:focus { border: 1.5px solid var(--forest); box-shadow: none; }
 .input-with-unit {
   min-height: 48px;
   padding: 0 14px;

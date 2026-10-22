@@ -1,7 +1,7 @@
 # AuNote Beta (GitHub Pages)
 
-This directory is the static deployment copy of AuNote V1.4.2-beta.6 from
-`HarryAuu999/field-research-data-tool`, branch `codex/aunote-beta-ui-only`.
+This directory is the static deployment copy of AuNote V1.4.8-beta.7 from
+`HarryAuu999/field-research-data-tool`, branch `codex/aunote-beta-ui-main`.
 It contains only files needed by the PWA. No build step is
 required; publish the repository's `main` branch from `/` with GitHub Pages.
 
@@ -17,8 +17,9 @@ no research records or backups. Installing from this GitHub Pages address
 uses a separate local dataset from the formal site. Use the app's full JSON backup and
 restore only when a deliberate transfer is needed.
 
-Beta.6 of the 1.4.2 series tests the all-page UI redesign without changing
-the previous Beta feature set. Production V1.4.7 remains on the separate formal site.
+V1.4.8-beta.7 tests the UI redesign on the V1.4.7 feature baseline, including
+the refined questionnaire overview and form-focus styling. Production V1.4.7
+remains on the separate formal site.
 
 For future updates, copy the runtime files from the Beta source branch,
 preserve this deployment's `DB_NAME` in `js/db.js`, increment the version in
