@@ -1,11 +1,11 @@
-const APP_VERSION = "1.4.8-beta.7";
-const UPDATE_SUMMARY = "Beta 已同步正式版 1.4.7 的多类型简易分析，并更新界面样式；原有问卷和记录继续保留。";
+const APP_VERSION = "1.4.8-beta.8";
+const UPDATE_SUMMARY = "修正滚动后的页面切换动画；原有问卷和记录继续保留。";
 const CACHE_NAME = `aunote-beta-${APP_VERSION}`;
 const APP_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=1.4.8-beta.7",
-  "./manifest.webmanifest?v=1.4.8-beta.7",
+  "./styles.css?v=1.4.8-beta.8",
+  "./manifest.webmanifest?v=1.4.8-beta.8",
   "./assets/beta-icon.svg",
   "./assets/beta-icon-180.png",
   "./assets/beta-icon-192.png",
@@ -21,16 +21,16 @@ const APP_ASSETS = [
   "./assets/trash.svg",
   "./assets/copy.svg",
   "./assets/plus.svg",
-  "./js/app.js?v=1.4.8-beta.7",
-  "./js/db.js?v=1.4.8-beta.7",
-  "./js/default-template.js?v=1.4.8-beta.7",
-  "./js/questionnaire-editor.js?v=1.4.8-beta.7",
-  "./js/questionnaire-schema.js?v=1.4.8-beta.7",
-  "./js/question-reorder.js?v=1.4.8-beta.7",
-  "./js/statistics.js?v=1.4.8-beta.7",
-  "./js/image-range.js?v=1.4.8-beta.7",
-  "./js/image-range-heatmap.js?v=1.4.8-beta.7",
-  "./js/xlsx-export.js?v=1.4.8-beta.7"
+  "./js/app.js?v=1.4.8-beta.8",
+  "./js/db.js?v=1.4.8-beta.8",
+  "./js/default-template.js?v=1.4.8-beta.8",
+  "./js/questionnaire-editor.js?v=1.4.8-beta.8",
+  "./js/questionnaire-schema.js?v=1.4.8-beta.8",
+  "./js/question-reorder.js?v=1.4.8-beta.8",
+  "./js/statistics.js?v=1.4.8-beta.8",
+  "./js/image-range.js?v=1.4.8-beta.8",
+  "./js/image-range-heatmap.js?v=1.4.8-beta.8",
+  "./js/xlsx-export.js?v=1.4.8-beta.8"
 ];
 
 self.addEventListener("install", (event) => {

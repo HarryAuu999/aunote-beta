@@ -1,7 +1,8 @@
 # AuNote Beta (GitHub Pages)
 
-This directory is the static deployment copy of AuNote V1.4.8-beta.7 from
-`HarryAuu999/field-research-data-tool`, branch `codex/aunote-beta-ui-main`.
+This directory is the independent static deployment of AuNote V1.4.8-beta.8.
+Its baseline came from `HarryAuu999/field-research-data-tool`, branch
+`codex/aunote-beta-ui-main`; Beta-only updates may be published here directly.
 It contains only files needed by the PWA. No build step is
 required; publish the repository's `main` branch from `/` with GitHub Pages.
 
